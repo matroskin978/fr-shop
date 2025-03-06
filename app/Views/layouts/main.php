@@ -25,11 +25,15 @@
     <?php endif; ?>
 
     <link rel="stylesheet" href="<?= base_url('/assets/css/main.css'); ?>">
-
+    <style>
+        body {
+            background: #0dcaf0;
+        }
+    </style>
 </head>
 <body>
 
-<h1>DEFAULT TEMPLATE</h1>
+<h1>MAIN TEMPLATE</h1>
 
 <?php //get_alerts(); ?>
 <?= /** @var string $content */
