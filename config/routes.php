@@ -10,5 +10,4 @@ const MIDDLEWARE = [
 ];
 
 $app->router->get('/', [HomeController::class, 'index']);
-$app->router->get('/test', [HomeController::class, 'test']);
 

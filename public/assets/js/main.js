@@ -1,51 +1,127 @@
 $(function () {
 
-    let currentUri = location.origin + location.pathname.replace(/\/$/, '');
-    $('.navbar-menu a').each(function () {
-        let href = $(this).attr('href').replace(/\/$/, '');
-        if (href === currentUri) {
-            $(this).addClass('active');
+    let sliderRange = $('#slider-range');
+    if (sliderRange.length) {
+        let minPriceInput = $('#min-price');
+        let maxPriceInput = $('#max-price');
+        $("#slider-range").slider({
+            range: true,
+            min: minPrice,
+            max: maxPrice,
+            values: [minPrice, maxPrice],
+            slide: function (event, ui) {
+                minPriceInput.val(ui.values[0]);
+                maxPriceInput.val(ui.values[1]);
+            }
+        });
+
+        $('#min-price, #max-price').on('input', function () {
+            let minPriceRange = +minPriceInput.val();
+            let maxPriceRange = +maxPriceInput.val();
+            if (minPriceRange > maxPriceRange) {
+                minPriceRange = maxPriceRange;
+                minPriceInput.val(minPriceRange);
+            }
+            sliderRange.slider({
+                values: [minPriceRange, maxPriceRange]
+            });
+        });
+    }
+
+    $('#search-form-btn').on('click', function (e) {
+        e.preventDefault();
+        let form = $(this).parent();
+        let inputSearch = form.find('.form-control');
+        inputSearch.toggleClass('show').focus();
+        if (inputSearch.val()) {
+            form.submit();
         }
     });
 
-    $('.ajax-form').on('submit', function (e) {
-        e.preventDefault();
+    // $('.counter-num').spincrement();
 
-        let form = $(this);
-        let btn = form.find('button');
-        let btnText = btn.text();
-        let method = form.attr('method');
-        if (method) {
-            method = method.toLowerCase();
-        }
-        let action = form.attr('action') ? form.attr('action') : location.href;
+    let counterBox = $('.achievments');
+    if (counterBox.length) {
+        let counterItem = $('.counter-num');
+        let showCounter = true;
 
-        $.ajax({
-            url: action,
-            type: method === 'post' ? 'post' : 'get',
-            data: form.serialize(),
-            beforeSend: function () {
-                btn.prop('disabled', true).text('Отправляю...');
-            },
-            success: function (res) {
-                res = JSON.parse(res);
-                if (res.status === 'success') {
-                    toastr.success(res.data);
-                    form.trigger('reset');
-                    if (res.redirect) {
-                        location = res.redirect;
-                    }
-                } else {
-                    toastr.error(res.data);
-                }
-                btn.prop('disabled', false).text(btnText);
-            },
-            error: function () {
-                toastr.error('Error!');
-                btn.prop('disabled', false).text(btnText);
-            },
+        $(window).on('scroll load resize', function () {
+            let counterBoxTop = counterBox.offset().top;
+            let windowHeight = window.innerHeight;
+            let windowTop = $(window).scrollTop();
+
+            if (showCounter && (counterBoxTop + 200 < windowTop + windowHeight)) {
+                showCounter = false;
+                counterItem.css('opacity', 1);
+                counterItem.spincrement({
+                    duration: 2000
+                });
+                // console.log(counterBoxTop, windowHeight, windowTop);
+            }
         });
+    }
 
+
+    const mainOlwProducts = $('.owl-carousel').owlCarousel({
+        // loop: true,
+        stagePadding: 30,
+        margin: 20,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            500: {
+                items: 2
+            },
+            700: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    });
+
+    const mainOlwProductsNextBtn = $('.next-btn');
+    const mainOlwProductsPrevBtn = $('.prev-btn');
+
+    mainOlwProductsNextBtn.click(function () {
+        mainOlwProducts.trigger("next.owl.carousel");
+    });
+    mainOlwProductsPrevBtn.click(function () {
+        mainOlwProducts.trigger("prev.owl.carousel");
+    });
+
+    mainOlwProductsPrevBtn.addClass("disabled");
+    mainOlwProducts.on("translated.owl.carousel", function (event) {
+        if ($(".main-our-products .owl-prev").hasClass("disabled")) {
+            mainOlwProductsPrevBtn.addClass("disabled");
+        } else {
+            mainOlwProductsPrevBtn.removeClass("disabled");
+        }
+        if ($(".main-our-products .owl-next").hasClass("disabled")) {
+            mainOlwProductsNextBtn.addClass("disabled");
+        } else {
+            mainOlwProductsNextBtn.removeClass("disabled");
+        }
+    });
+
+    $(".phone-mask").mask("+3(999) 999-9999");
+
+    const topBtn = $('#top');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+
+    topBtn.click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 500);
+        return false;
     });
 
 });
