@@ -183,6 +183,13 @@
 
     <main class="main">
 
+        <?php
+            new \App\Widgets\Menu\Menu([
+                'table' => 'categories',
+                'tpl2' => 'menu_tpl',
+            ]);
+        ?>
+
         <?= $content ?>
 
     </main>
