@@ -70,56 +70,19 @@
                                    aria-expanded="false">
                                     Каталог
                                 </a>
-                                <div class="container dropdown-menu megamenu" role="menu">
-                                    <div class="row g-3">
-                                        <div class="col-lg-3">
-                                            <h6 class="title">Электронные замки</h6>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Врезные замки</a></li>
-                                                <li><a href="#">Замки для квартиры</a></li>
-                                                <li><a href="#">Замки для дома</a></li>
-                                                <li><a href="#">Замки для отелей</a></li>
-                                                <li><a href="#">Замки для офиса</a></li>
-                                                <li><a href="#">Замки для шкафчиков</a></li>
-                                            </ul>
-                                        </div><!-- end col-3 -->
-
-                                        <div class="col-lg-3">
-                                            <h6 class="title">Механические замки</h6>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Врезные замки</a></li>
-                                                <li><a href="#">Замки для квартиры</a></li>
-                                                <li><a href="#">Замки для дома</a></li>
-                                                <li><a href="#">Замки для отелей</a></li>
-                                            </ul>
-                                        </div><!-- end col-3 -->
-
-                                        <div class="col-lg-3">
-                                            <h6 class="title">Декоративные замки</h6>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Врезные замки</a></li>
-                                                <li><a href="#">Замки для квартиры</a></li>
-                                                <li><a href="#">Замки для дома</a></li>
-                                                <li><a href="#">Замки для отелей</a></li>
-                                                <li><a href="#">Замки для офиса</a></li>
-                                                <li><a href="#">Замки для шкафчиков</a></li>
-                                                <li><a href="#">Замки для шкафчиков</a></li>
-                                            </ul>
-                                        </div><!-- end col-3 -->
-
-                                        <div class="col-lg-3">
-                                            <h6 class="title">Составные замки</h6>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Врезные замки</a></li>
-                                                <li><a href="#">Замки для квартиры</a></li>
-                                                <li><a href="#">Замки для дома</a></li>
-                                                <li><a href="#">Замки для отелей</a></li>
-                                                <li><a href="#">Замки для офиса</a></li>
-                                                <li><a href="#">Замки для шкафчиков</a></li>
-                                            </ul>
-                                        </div><!-- end col-3 -->
-                                    </div>
-                                </div> <!-- dropdown-mega-menu.// -->
+                                <?php
+                                new \App\Widgets\Menu\Menu([
+                                    'table' => 'categories',
+                                    'tpl' => 'mega_menu_tpl',
+                                    'container' => 'div',
+                                    'class' => 'container dropdown-menu megamenu',
+                                    'prepend' => '<div class="row g-3">',
+                                    'append' => '</div>',
+                                    'attrs' => ['role' => 'menu', 'id' => 'mega-menu'],
+                                    'cacheTime' => 20,
+                                    'cacheKey' => 'catalog-menu'
+                                ]);
+                                ?>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Оптовая продажа</a>
@@ -182,13 +145,6 @@
     </header>
 
     <main class="main">
-
-        <?php
-            new \App\Widgets\Menu\Menu([
-                'table' => 'categories',
-                'tpl2' => 'menu_tpl',
-            ]);
-        ?>
 
         <?= $content ?>
 
