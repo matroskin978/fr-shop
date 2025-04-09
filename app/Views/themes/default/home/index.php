@@ -258,8 +258,15 @@
         <div class="owl-carousel owl-theme">
 
             <div class="product-card item">
+                <div class="product-card-offer">
+                    <div class="in-stock">
+                        <i class="fa-solid fa-check"></i>
+                        <span>В наличии</span>
+                    </div>
+                    <div class="in-sale">sale</div>
+                </div>
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/1.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/1.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля</a></h4>
@@ -277,8 +284,15 @@
             </div>
 
             <div class="product-card item">
+                <div class="product-card-offer">
+                    <div class="not-in-stock">
+                        <i class="fa-solid fa-xmark"></i>
+                        <span>Нет в наличии</span>
+                    </div>
+                    <div class="in-sale">sale</div>
+                </div>
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/6.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/6.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
@@ -299,7 +313,7 @@
 
             <div class="product-card item">
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/3.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/3.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
@@ -320,7 +334,7 @@
 
             <div class="product-card item">
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/4.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/4.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
@@ -341,7 +355,7 @@
 
             <div class="product-card item">
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/5.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/5.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
@@ -362,7 +376,7 @@
 
             <div class="product-card item">
                 <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/categories/7.png" alt=""></a>
+                    <a href="#"><img src="assets/img/products/7.jpg" alt=""></a>
                 </div>
                 <div class="product-card-details">
                     <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для

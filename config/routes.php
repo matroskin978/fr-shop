@@ -11,3 +11,13 @@ const MIDDLEWARE = [
 
 $app->router->get('/', [HomeController::class, 'index']);
 
+// seed
+/*$app->router->get('/seed', function () {
+    // categories
+    require_once __DIR__ . '/seeders/categories.php';
+
+    // products
+    require_once __DIR__ . '/seeders/products.php';
+
+    return 'Ok';
+});*/
