@@ -45,7 +45,7 @@ class View
     public function renderPartial($view, $data = []): string
     {
         extract($data);
-        $view_file = VIEWS . "/{$view}.php";
+        $view_file = VIEWS . '/themes/' . THEME . "/{$view}.php";
 
         if (is_file($view_file)) {
             ob_start();

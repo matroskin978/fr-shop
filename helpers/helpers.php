@@ -202,3 +202,8 @@ function send_mail(array $to, string $subject, string $tpl, array $data = [], ar
         return false;
     }
 }
+
+function get_image($path): string
+{
+    return $path ? base_href("/$path") : base_href("/assets/img/no-image.png");
+}

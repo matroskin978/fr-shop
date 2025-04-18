@@ -161,245 +161,64 @@
     </div>
 </section>
 
-<section class="main-categories">
+<?php if (!empty($root_categories)): ?>
+    <section class="main-categories">
 
-    <div class="container">
+        <div class="container">
 
-        <h2>Категории</h2>
+            <h2>Категории</h2>
 
-        <div class="row row-gap-4">
+            <div class="row row-gap-4">
 
-            <div class="col-6">
-                <div class="main-categories-card">
-                    <a href="#">
-                        <div class="main-categories-card-thumb">
-                            <img src="assets/img/categories/1.png" alt="">
+                <?php foreach ($root_categories as $category): ?>
+                    <div class="col-6">
+                        <div class="main-categories-card">
+                            <a href="<?= base_href("/category/{$category['slug']}") ?>">
+                                <div class="main-categories-card-thumb">
+                                    <img src="<?= get_image($category['image']) ?>" alt="">
+                                </div>
+                            </a>
+
+                            <div class="main-categories-card-desc">
+                                <h3><?= h($category['title']) ?></h3>
+                                <a href="<?= base_href("/category/{$category['slug']}") ?>" class="btn btn-outline-dark">Перейти</a>
+                            </div>
                         </div>
-                    </a>
-
-                    <div class="main-categories-card-desc">
-                        <h3>Для отелей</h3>
-                        <a href="#" class="btn btn-outline-dark">Перейти</a>
+                        <h3 class="main-categories-add-title"><?= h($category['title']) ?></h3>
                     </div>
-                </div>
-                <h3 class="main-categories-add-title">Для отелей</h3>
-            </div>
+                <?php endforeach; ?>
 
-            <div class="col-6">
-                <div class="main-categories-card">
-                    <a href="#">
-                        <div class="main-categories-card-thumb">
-                            <img src="assets/img/categories/6.png" alt="">
-                        </div>
-                    </a>
-
-                    <div class="main-categories-card-desc">
-                        <h3>Для шкафчиков</h3>
-                        <a href="#" class="btn btn-outline-dark">Перейти</a>
-                    </div>
-                </div>
-                <h3 class="main-categories-add-title">Для шкафчиков</h3>
-            </div>
-
-            <div class="col-6">
-                <div class="main-categories-card">
-                    <a href="#">
-                        <div class="main-categories-card-thumb">
-                            <img src="assets/img/categories/3.png" alt="">
-                        </div>
-                    </a>
-
-                    <div class="main-categories-card-desc">
-                        <h3>Для офисов</h3>
-                        <a href="#" class="btn btn-outline-dark">Перейти</a>
-                    </div>
-                </div>
-                <h3 class="main-categories-add-title">Для офисов</h3>
-            </div>
-
-            <div class="col-6">
-                <div class="main-categories-card">
-                    <a href="#">
-                        <div class="main-categories-card-thumb">
-                            <img src="assets/img/categories/4.png" alt="">
-                        </div>
-                    </a>
-
-                    <div class="main-categories-card-desc">
-                        <h3>Замки для дома</h3>
-                        <a href="#" class="btn btn-outline-dark">Перейти</a>
-                    </div>
-                </div>
-                <h3 class="main-categories-add-title">Для офисов</h3>
-            </div>
-
-            <p class="text-center"><a href="categories.html" class="btn btn-primary main-all-ategories">Все
-                    категории</a></p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="main-our-products">
-
-    <div class="container">
-
-        <div class="main-our-products-top">
-            <h2>Популярные продукты</h2>
-
-            <div class="slider-btn-wrap">
-                <span class="prev-btn"><i class="fa-solid fa-chevron-left"></i></span>
-                <span class="next-btn"><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
-        </div>
-
-        <div class="owl-carousel owl-theme">
-
-            <div class="product-card item">
-                <div class="product-card-offer">
-                    <div class="in-stock">
-                        <i class="fa-solid fa-check"></i>
-                        <span>В наличии</span>
-                    </div>
-                    <div class="in-sale">sale</div>
-                </div>
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/1.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card item">
-                <div class="product-card-offer">
-                    <div class="not-in-stock">
-                        <i class="fa-solid fa-xmark"></i>
-                        <span>Нет в наличии</span>
-                    </div>
-                    <div class="in-sale">sale</div>
-                </div>
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/6.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
-                            офиса,
-                            для квартиры и вообще для всего</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card item">
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/3.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
-                            офиса,
-                            для квартиры и вообще для всего</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card item">
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/4.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
-                            офиса,
-                            для квартиры и вообще для всего</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card item">
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/5.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
-                            офиса,
-                            для квартиры и вообще для всего</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card item">
-                <div class="product-card-thumb">
-                    <a href="#"><img src="assets/img/products/7.jpg" alt=""></a>
-                </div>
-                <div class="product-card-details">
-                    <h4 class="product-card-title"><a href="#">Дверной Замок Golden Soft для отеля, для
-                            офиса,
-                            для квартиры и вообще для всего</a></h4>
-                    <div class="product-card-details-bottom">
-                        <div class="product-card-price">
-                            33 000₽
-                            <del>37 000₽</del>
-                        </div>
-                        <div class="product-card-btns">
-                            <a href="#" class="btn btn-outline-secondary add2cart"><i
-                                        class="fa-solid fa-cart-shopping"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
 
-    </div>
+    </section>
+<?php endif; ?>
 
-</section>
+<?php if (!empty($sales_products)): ?>
+    <section class="main-our-products">
+
+        <div class="container">
+
+            <div class="main-our-products-top">
+                <h2>Популярные продукты</h2>
+
+                <div class="slider-btn-wrap">
+                    <span class="prev-btn"><i class="fa-solid fa-chevron-left"></i></span>
+                    <span class="next-btn"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+            </div>
+
+            <div class="owl-carousel owl-theme">
+                <?php foreach ($sales_products as $product): ?>
+                    <?= view()->renderPartial('incs/product-card', ['product' => $product]) ?>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
+
+    </section>
+<?php endif; ?>
 
 <section class="main-callback">
     <div class="container">
