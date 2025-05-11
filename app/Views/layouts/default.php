@@ -118,7 +118,10 @@
                             <a href="#"><i class="fa-regular fa-heart"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a data-bs-toggle="offcanvas" href="#offcanvasCart" class="offcanvas-cart-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="offcanvas-cart-qty">4</span>
+                            </a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -141,6 +144,60 @@
 
             </div>
         </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <div class="table-responsive offcanvas-cart-table">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="product-img-td">
+                                <a href="#"><img src="<?= base_url('/assets/img/products/1.jpg') ?>" alt=""></a>
+                            </td>
+                            <td><a href="#">Тестовый товар 1</a></td>
+                            <td>$110</td>
+                            <td>x1</td>
+                            <td><button class="btn btn-danger offcanvas-cart-remove"><i class="fa-solid fa-xmark"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="product-img-td">
+                                <a href="#"><img src="<?= base_url('/assets/img/products/2.jpg') ?>" alt=""></a>
+                            </td>
+                            <td><a href="#">Тестовый товар 2</a></td>
+                            <td>$110</td>
+                            <td>x1</td>
+                            <td><button class="btn btn-danger offcanvas-cart-remove"><i class="fa-solid fa-xmark"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="product-img-td">
+                                <a href="#"><img src="<?= base_url('/assets/img/products/3.jpg') ?>" alt=""></a>
+                            </td>
+                            <td><a href="#">Тестовый товар 3</a></td>
+                            <td>$110</td>
+                            <td>x2</td>
+                            <td><button class="btn btn-danger offcanvas-cart-remove"><i class="fa-solid fa-xmark"></i></button></td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="5" class="text-end">Total: $610</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="text-end mt-3">
+                    <a href="#" class="btn btn-outline-warning">Cart</a>
+                    <a href="#" class="btn btn-outline-secondary">Checkout</a>
+                </div>
+
+            </div>
+        </div>
 
     </header>
 
