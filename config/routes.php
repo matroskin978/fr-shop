@@ -10,6 +10,7 @@ const MIDDLEWARE = [
 ];
 
 $app->router->get('/', [HomeController::class, 'index']);
+$app->router->get('/test', [HomeController::class, 'test']);
 
 // seed
 $app->router->get('/seed', function () {

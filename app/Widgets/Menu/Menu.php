@@ -23,23 +23,23 @@ class Menu
     {
         $this->getOptions($options);
         $this->tpl = __DIR__ . "/{$this->tpl}.php";
-        $this->run();
+//        $this->run();
     }
 
-    protected function run()
+    public function run(): string
     {
         $menu_html = cache()->get($this->cacheKey);
         if ($menu_html) {
-            echo $menu_html;
-            return;
+            return $menu_html;
         }
+
         $this->data = db()->query("select * from {$this->table}")->getAssoc();
         $this->tree = $this->getTree();
         $this->menuHtml = $this->getMenuHtml($this->tree);
-        $this->output();
+        return $this->output();
     }
 
-    protected function output()
+    protected function output(): string
     {
         $attrs = '';
         if (!empty($this->attrs)) {
@@ -58,7 +58,7 @@ class Menu
             $menu_html .= "</{$this->container}>";
         }
         cache()->set($this->cacheKey, $menu_html, $this->cacheTime);
-        echo $menu_html;
+        return $menu_html;
     }
 
 

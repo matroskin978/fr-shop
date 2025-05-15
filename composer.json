@@ -11,6 +11,7 @@
     "vlucas/valitron": "^1.4",
     "ext-pdo": "*",
     "filp/whoops": "^2.15",
-    "phpmailer/phpmailer": "^6.9"
+    "phpmailer/phpmailer": "^6.9",
+    "twig/twig": "^3.0"
   }
 }

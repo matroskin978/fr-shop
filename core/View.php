@@ -2,19 +2,26 @@
 
 namespace PHPFramework;
 
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
 class View
 {
 
     public string $layout;
     public string $content = '';
+    public Environment $twig;
 
     public function __construct($layout)
     {
+        $loader = new FilesystemLoader(VIEWS . '/themes/' . THEME);
+        $this->twig = new Environment($loader);
         $this->layout = $layout;
     }
 
     public function render($view, $data = [], $layout = ''): string
     {
+        return $this->twig->render("$view.twig", $data);
         extract($data);
         $view_file = VIEWS . '/themes/' . THEME . "/{$view}.php";
 
