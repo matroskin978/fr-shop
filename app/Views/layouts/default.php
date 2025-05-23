@@ -71,7 +71,7 @@
                                     Каталог
                                 </a>
                                 <?php
-                                new \App\Widgets\Menu\Menu([
+                                echo (new \App\Widgets\Menu\Menu([
                                     'table' => 'categories',
                                     'tpl' => 'mega_menu_tpl',
                                     'container' => 'div',
@@ -81,7 +81,7 @@
                                     'attrs' => ['role' => 'menu', 'id' => 'mega-menu'],
                                     'cacheTime' => 20,
                                     'cacheKey' => 'catalog-menu'
-                                ]);
+                                ]))->run();
                                 ?>
                             </li>
                             <li class="nav-item">
